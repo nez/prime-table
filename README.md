@@ -20,7 +20,7 @@ Then seek no more for this is what you have been looking for:
 
 ### Displaying a n x n table rom the repl
 
-`(print-matrix (populate-matrix n))`
+`(primes-multiplication-table n)`
 
 ### Generating a collection of the first n primes
 
