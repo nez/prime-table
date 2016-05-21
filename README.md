@@ -29,8 +29,7 @@ Then seek no more for this is what you have been looking for:
 ### Using prime-table as a library
 
 Just add `[prime-table "0.1.0-SNAPSHOT"]` as a dependency,
-require `prime-table.core`
-and enjoy
+require `prime-table.core`, and enjoy
 
 ## License
 
