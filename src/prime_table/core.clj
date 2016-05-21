@@ -60,39 +60,6 @@
         (recur (symmetric-mset M x1 x2 y)
                (rest coll))))))
 
-(defn rng [n]
-  (range (inc n)))
-
-(defn symmetric-mset!
-  [M x y val]
-  (do (mset! M x y val)
-      (mset! M y x val)))
-
-;(
-(defn def-zero-matrix
-  [n]
-  (def M (zero-matrix n n)))
-
-(defn populate-matrix
-  [M X]
-  (map (fn [x1 y1] (map (fn [x2 y2] (symmetric-mset! M x1 x2 (* y1 y2)))
-                          (rng x1)
-                          X))
-         (rng (dec (count X)))
-         X))
-
-(defn multiplication-matrix
-  [n]
-  (do
-    (def M (zero-matrix (inc n) (inc n)))
-    (populate-matrix M (concat [1] (primes n)))
-    M))
-;)
-(defn multiplication-matrix
-  [n]
-  (loop [M (zero-matrix (inc n) (inc n))
-         ]))
-
 (defn line-string
   [coll]
   (s/join "\t" (map int coll)))
@@ -102,4 +69,4 @@
   (println (s/replace-first (s/join "\n" (map line-string m)) #"1" " ")))
 
 (defn -main []
-  (print-matrix (multiplication-matrix 10)))
+  (print-matrix (populate-matrix 10)))
