@@ -19,9 +19,9 @@
 (defn primes
   "The first n primes"
   [n]
-  (loop [bag []
-         counter n
-         pointer 2]
+  (loop [bag []     ;bag o' primes
+         counter n  ;how many primes we've got
+         pointer 2] ;next number to check
     (if (= counter 0)
       bag
       (if (is-prime? pointer bag)
@@ -38,9 +38,11 @@
   are a sequence of primes.
   The first element is [0 1]. We are aware that 1 is not prime
   but it will help afterwars because we want to print the primes in
-  the first column and row"
+  the first column and row, so we will multiply them by 1"
   [n]
-  (map #(vector %1 %2) (range) (concat [1] (primes n))))
+  (map #(vector %1 %2)
+       (range)
+       (concat [1] (primes n))))
 
 (defn travel
   "Generate a list of vectors, where each vector contains
@@ -80,8 +82,11 @@
 
 (defn print-matrix
   "Pretty print a matrix or any collection of collections"
-  [m]                                ;the first '1' in the matrix is implementation, we do not want to print it
-  (println (s/replace-first (s/join "\n" (map line-string m)) #"1" " ")))
+  [m]  ;the first '1' in the matrix is implementation, we do not want to print it
+  (println
+   (s/replace-first (s/join "\n" (map line-string m))
+                    #"1"
+                    " ")))
 
 (defn primes-multiplication-table
   "Print a multiplication table of the first n primes"
