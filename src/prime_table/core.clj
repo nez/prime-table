@@ -87,8 +87,10 @@
 
 (defn primes-multiplication-table
   "Print a multiplication table of the first n primes"
-  [n]
-  (print-matrix (populate-matrix 10)))
+  ([]
+   (primes-multiplication-table 10))
+  ([n]
+   (print-matrix (populate-matrix n))))
 
 (defn -main
   "Generate da prime multiplication table"
