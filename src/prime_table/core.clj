@@ -4,8 +4,8 @@
             [clojure.string :as s]))
 
 (defn or*                               ;found this fn on SO
-  "Apply 'or' to a list of predicates"  ;I use it a lot because u cant do
-  [coll]                                ;(apply or [true true])
+  "Apply 'or' to a list of predicates"  ; I use it a lot because u cant do
+  [coll]                                ; (apply or [true true])
   (if-let [t? (some true? coll)]
     true
     false))
@@ -13,15 +13,15 @@
 (defn is-prime?
   "Is this a prime number?, based on previous primes"
   [n prev-primes]
-  (not (or* (map #(= 0 (mod n %))     ;If n mod x = 0, for x any previous prime,
-                 prev-primes))))      ;then this aint no prime
+  (not (or* (map #(= 0 (mod n %))       ;If n mod x = 0, for x any previous prime,
+                 prev-primes))))        ; then this aint no prime
 
 (defn primes
   "The first n primes"
   [n]
-  (loop [bag []     ;bag o' primes
-         counter n  ;how many primes we've got
-         pointer 2] ;next number to check
+  (loop [bag []                         ;bag o' primes
+         counter n                      ;how many primes we've got
+         pointer 2]                     ;next number to check
     (if (= counter 0)
       bag
       (if (is-prime? pointer bag)
@@ -54,7 +54,7 @@
   (let [les-primes (indexed-primes n)]
     (for [[x1 y1] les-primes
           [x2 y2] les-primes
-          :when (>= x1 x2)]           ;we only travel half of the matrix
+          :when (>= x1 x2)]             ;we only travel half of the matrix
       [x1 x2 (* y1 y2)])))
 
 (defn symmetric-mset
@@ -66,9 +66,9 @@
   "Generate a n+1 * n+1 matrix with the multiplication
   table of the first n primes"
   [n]
-  (loop [M (zero-matrix (inc n) (inc n))     ;the matrix is larger because we also store
-         coll (travel n)]                    ;the primes themselves, it is easier to print
-    (if (empty? coll)                        ;the header row and colum this way
+  (loop [M (zero-matrix (inc n) (inc n));the matrix is larger because we also store
+         coll (travel n)]               ; the primes themselves, it is easier to print
+    (if (empty? coll)                   ; the header row and colum this way
       M
       (let [[x1 x2 y] (first coll)]
         (recur (symmetric-mset M x1 x2 y)
@@ -82,7 +82,7 @@
 
 (defn print-matrix
   "Pretty print a matrix or any collection of collections"
-  [m]  ;the first '1' in the matrix is implementation, we do not want to print it
+  [m]                                   ;the first '1' in the matrix is implementation, wont print it
   (println
    (s/replace-first (s/join "\n" (map line-string m))
                     #"1"
@@ -98,4 +98,4 @@
 (defn -main
   "Generate da prime multiplication table"
   []
-  (primes-multiplication-table))     ;the use case is to print a 10 x 10 table
+  (primes-multiplication-table))       ;the use case is to print a 10 x 10 table
