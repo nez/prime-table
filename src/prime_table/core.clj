@@ -80,7 +80,7 @@
 
 (defn print-matrix
   "Pretty print a matrix or any collection of collections"
-  [m]
+  [m]                                ;the first '1' in the matrix is implementation, we do not want to print it
   (println (s/replace-first (s/join "\n" (map line-string m)) #"1" " ")))
 
 (defn primes-multiplication-table
