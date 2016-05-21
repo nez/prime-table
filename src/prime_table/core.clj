@@ -32,8 +32,6 @@
                counter
                (inc pointer))))))
 
-(set-current-implementation :vectorz)
-
 (defn indexed-primes
   "Generate a list of vectors where the first elements
   are a sequence of whole numbers and the second elements
