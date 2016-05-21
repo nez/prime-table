@@ -95,4 +95,4 @@
 (defn -main
   "Generate da prime multiplication table"
   []
-  (primes-multiplication-table 10))     ;the use case is to print an
+  (primes-multiplication-table))     ;the use case is to print a 10 x 10 table
