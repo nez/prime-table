@@ -3,12 +3,10 @@
             [clojure.core.matrix.operators :as mo]
             [clojure.string :as s]))
 
-(defn or*                               ;found this fn on SO
-  "Apply 'or' to a list of predicates"  ; I use it a lot because u cant do
+(defn or*
+  "Apply 'or' to a list of predicates"  ;I use this because u cant do
   [coll]                                ; (apply or [true true])
-  (if-let [t? (some true? coll)]
-    true
-    false))
+  (true? (some true? coll)))
 
 (defn is-prime?
   "Is this a prime number?, based on previous primes"
